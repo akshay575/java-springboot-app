@@ -1,0 +1,12 @@
+spring.h2.console.enabled: true
+spring.h2.console.path: /h2-console
+
+server.port: 7000
+
+# disable jpa to automatically create tables (@Entity)
+# if enabled, database.sql will conflict and inserts will fail
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
