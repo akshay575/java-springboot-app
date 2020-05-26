@@ -16,6 +16,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
     @Query("UPDATE Student s SET s.course = :course WHERE s.sid IN :idList")
     int updateStudents(List<Integer> idList, String course);
 
+    // SpEL method parameter expressions :#
     @Query("SELECT s from Student s where (:#{#student.name} IS NULL OR s.name = :#{#student.name}) " +
             "AND (:regAfter IS NULL OR (s.registration >= :regAfter AND s.registration <= :regBefore))")
     List<Student> searchStudentByQuery(Student student, Timestamp regAfter, Timestamp regBefore, Pageable pageable);
